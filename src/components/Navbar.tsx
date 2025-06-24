@@ -4,7 +4,7 @@ import SmartToyIcon from '@mui/icons-material/SmartToy';
 const Navbar = () => {
   return (
     <>
-      <nav className="flex justify-between px-[2rem] py-[2rem] items-center  " >
+      <nav className="flex justify-between px-[2rem] py-[1rem] items-center  " >
         <div>
           <Link href={"/"} className="text-[2rem] font-bold font-Bungee " >Jeevika</Link>
         </div>
