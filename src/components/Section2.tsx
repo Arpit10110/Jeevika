@@ -37,7 +37,7 @@ const Section2 = () => {
     <div className='py-[5rem]' >
         <div className='flex justify-between flex-col items-center gap-[1rem] flex-wrap ' >
             <h2 className=' text-[3rem] font-bold  text-center' >🏥 Let Medical Shops Bid for You!</h2>
-            <p className='text-[1.3rem] font-semibold text-center' >Save time and money with local stores bidding to serve you best.</p>
+            <p className='text-[1.3rem] font-semibold text-center text-gray-700 ' >Save time and money with local stores bidding to serve you best.</p>
         </div>
         <div className='flex  justify-around items-center flex-wrap mt-[5rem] gap-y-[3rem] ' >
             {
