@@ -65,7 +65,7 @@ const Section3 = () => {
                                     </div>
                                 </div>
                                 <div className='mt-[1.5rem] w-[95%] m-auto  flex' >
-                                 <Link href={"/"} className=' w-full bg-blue-700 text-white text-center py-[0.5rem] rounded-[7px] font-semibold text-[1.4rem]'  >Compare Prices</Link>
+                                 <Link href={"/"} target='_blank' className=' w-full bg-blue-700 text-white text-center py-[0.5rem] rounded-[7px] font-semibold text-[1.4rem]'  >Compare Prices</Link>
                                 </div>
                             </div>
                         )

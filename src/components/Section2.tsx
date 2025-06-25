@@ -43,7 +43,7 @@ const Section2 = () => {
             {
                 biddingSteps.map((i,index)=>{
                     return(
-                        <div className='w-[40%]  bg-gray-200 p-[1rem] flex flex-col gap-[0.8rem] items-center rounded-[5px] cursor-pointer hover:scale-[1.02] transition-all py-[3.5rem] px-[3rem] ' key={index}>
+                        <div className='w-[40%]  bg-gray-200 p-[1rem] flex flex-col gap-[0.8rem] items-center rounded-[5px] cursor-pointer hover:scale-[1.02] transition-all py-[3.5rem] px-[3rem] shadow-[0px_4px_10px_4px_#4042437d]' key={index}>
                             <h3  >{i.icon}</h3>
                             <h1 className='text-center text-[1.8rem] font-bold  '>{i.step}</h1>
                             <p className='text-center text-[1.5rem] font-semibold ' >{i.description}</p>
