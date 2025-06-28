@@ -16,7 +16,7 @@ const Section4 = () => {
                 <h2 className='text-[3rem]  font-bold ' >📷 Don't want to type? Just upload your prescription.</h2>
                 <p className='text-[1.5rem] font-semibold text-gray-700 ' >Snap a photo of your prescription and upload it. We'll share it with nearby medical shops, and you'll receive price quotes from multiple pharmacies. Choose the best deal and place your order with confidence.</p>
               </div>
-              <div className='bg-blue-100 w-[90%] py-[2rem] rounded-[0.5rem] px-[1rem] flex gap-[1.5rem] flex-col   ' >
+              <div className='bg-blue-100 w-[90%] py-[2rem] rounded-[0.5rem] px-[1rem] flex gap-[1.5rem] flex-col shadow-[0px_4px_19px_8px_#4042434d]   ' >
                 {
                   steps.map((i,index)=>{
                     return(
