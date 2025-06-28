@@ -13,7 +13,7 @@ const Navbar = () => {
           <Link className="flex transition-all hover:scale-[1.05]  "  href={"/"} >Medicines</Link>
           <Link className="flex transition-all hover:scale-[1.05]  "  href={"/"} >Compare Price</Link>
           <Link className="flex transition-all hover:scale-[1.05]  "  href={"/"} > <LocalMallIcon className="!text-[1.8rem]" /> </Link>
-          <Link className="flex transition-all hover:scale-[1.05]  "  href={"/"} >JeevaAI</Link>
+          <Link className="flex transition-all hover:scale-[1.05]  "  href={"/jeevika-ai"} >JeevaAI</Link>
         </div>
         <div className="hover:scale-[1.05] transition-all " >
           <Link  className="text-[1.5rem] cursor-pointer  font-semibold  bg-[#00beb1] px-[1rem] py-[0.3rem] rounded-[5px] text-white "  href={"/login"} >Login</Link>
