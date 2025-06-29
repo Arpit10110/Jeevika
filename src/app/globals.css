@@ -13,3 +13,8 @@ body{
 .font-Bungee{
   font-family: "Bungee Shade", sans-serif;
 }
+.allchat {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #555555c8 #cccccc11; /* thumb and track for Firefox */
+  overflow-y: auto;
+}
