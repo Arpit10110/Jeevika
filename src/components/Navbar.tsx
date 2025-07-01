@@ -1,6 +1,6 @@
 import Link from "next/link"
 import LocalMallIcon from '@mui/icons-material/LocalMall';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 const Navbar = () => {
   return (
     <>
@@ -16,7 +16,12 @@ const Navbar = () => {
           <Link className="flex transition-all hover:scale-[1.05]  "  href={"/jeevika-ai"} >Jeevika AI</Link>
         </div>
         <div className="hover:scale-[1.05] transition-all " >
-          <Link  className="text-[1.5rem] cursor-pointer  font-semibold  bg-[#00beb1] px-[1rem] py-[0.3rem] rounded-[5px] text-white "  href={"/login"} >Login</Link>
+          <SignedIn>   
+            <Link  className="text-[1.5rem] cursor-pointer  font-semibold  bg-[#00beb1] px-[1rem] py-[0.3rem] rounded-[5px] text-white "  href={"/profile"} >Profile</Link>
+          </SignedIn>
+          <SignedOut>
+             <Link  className="text-[1.5rem] cursor-pointer  font-semibold  bg-[#00beb1] px-[1rem] py-[0.3rem] rounded-[5px] text-white "  href={"/sign-in"} >SignIn</Link>
+          </SignedOut>
         </div>
       </nav>
     </>

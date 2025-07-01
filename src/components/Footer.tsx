@@ -16,7 +16,7 @@ const Footer = () => {
                     <Link href={"/"} >Home</Link>
                     <Link href={"/"} >Medicines</Link>
                     <Link href={"/"} >Compare Price</Link>
-                    <Link href={"/"} >JeevaAi</Link>
+                    <Link href={"/jeevika-ai"} >JeevaAi</Link>
                 </div>
             </div>
             <div className='flex flex-col gap-[1rem] w-[30%] ' >
@@ -25,7 +25,7 @@ const Footer = () => {
                     <Link href={"/"} >Medicine Search</Link>
                     <Link href={"/"} >Prescription Upload</Link>
                     <Link href={"/"} >Price Comparison</Link>
-                    <Link href={"/"} >AI Health Assistant</Link>
+                    <Link href={"/jeevika-ai"} >AI Health Assistant</Link>
                 </div>
             </div>
             <div className='flex flex-col gap-[1rem] w-[30%] ' >

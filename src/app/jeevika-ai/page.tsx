@@ -14,7 +14,11 @@ interface ChatData {
 
 const Page: React.FC = () => {
   const [UserChat, SetUserChat] = useState<string>(""); 
-  const [Chatdata, SetChatdata] = useState<ChatData[]>([]); 
+  const [Chatdata, SetChatdata] = useState<ChatData[]>([{
+    role: "ai",
+    data: "Hi! I'm Jeevika AI 🤖. Ask me about home remedies, diet tips, or generic medicines."
+  }
+  ]); 
   const [AiThink,SetAiThink]  = useState<boolean>(false); 
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
 
