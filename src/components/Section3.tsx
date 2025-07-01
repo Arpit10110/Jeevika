@@ -31,21 +31,21 @@ const Section3 = () => {
   return (
     <>
         <div className='py-[5rem] bg-gray-200 ' >
-            <div className='flex justify-between flex-col items-center gap-[1rem] flex-wrap ' >
-                <h2 className=' text-[3rem] font-bold  text-center' >🔍 Search & Compare Medicine Prices</h2>
-                <p className='text-[1.3rem] font-semibold text-center text-gray-700 ' >Find the best deals on medicines by comparing prices across top e-pharmacies.</p>
+            <div className='flex justify-between flex-col items-center gap-[1rem] flex-wrap px-[1rem] ' >
+                <h2 className=' text-[3rem] font-bold  text-center max-smobile:text-[2.5rem] max-xsmobile:text-[2rem] ' >🔍 Search & Compare Medicine Prices</h2>
+                <p className='text-[1.3rem] font-semibold text-center text-gray-700  ' >Find the best deals on medicines by comparing prices across top e-pharmacies.</p>
             </div>
-            <div className='flex items-center justify-center  mt-[5rem] w-[60%] m-auto shadow-[0px_4px_19px_8px_#4042434d] bg-white rounded-[10px] ' >
+            <div className='flex items-center justify-center  mt-[5rem] w-[60%] max-slaptop:w-[70%] max-tablet:w-[90%]  m-auto shadow-[0px_4px_19px_8px_#4042434d] bg-white rounded-[10px] ' >
                 <input type="text" className='w-[95%] text-[2rem]  py-[0.8rem] px-[1rem] focus:outline-none  '  placeholder='Search for medicines...'  />
                 <button className='w-[5%] cursor-pointer flex items-center justify-center ' >
                     <SearchRoundedIcon className='!text-[3rem] !font-bold text-blue-600 ' />
                 </button>
             </div>
-            <div className='flex justify-around items-center mt-[8rem] ' >
+            <div className='flex flex-wrap justify-around items-center mt-[8rem] max-tablet:gap-y-[2rem] max-tablet:mt-[4rem] ' >
                 {
                     popularMedicines.map((i,index)=>{
                         return(
-                            <div key={index} className='w-[25%] min-h-[50vh] pb-[1rem] bg-white rounded-[7px] cursor-default hover:scale-[1.01] transition-all shadow-[0px_4px_19px_8px_#4042434d] ' >
+                            <div key={index} className='w-[25%] max-slaptop:w-[30%] max-tablet:w-[60%] max-mobile:w-[80%]  min-h-[50vh] pb-[1rem] bg-white rounded-[7px] cursor-default hover:scale-[1.01] transition-all shadow-[0px_4px_19px_8px_#4042434d] ' >
                                 <div className='flex justify-around py-[1rem] items-center ' >
                                     <div className='w-[40%]' >
                                         <Image src={i.image} alt={i.name}  className='w-full h-[20vh] object-cover object-center ' />

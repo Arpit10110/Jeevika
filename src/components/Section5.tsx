@@ -27,11 +27,11 @@ const Section5 = () => {
       
   return (
     <>
-        <div  className='bg-[#EFFBF8] py-[8rem] flex flex-wrap justify-around  items-center '   >
-            <div className='w-[45%]   ' >
+        <div  className='bg-[#EFFBF8] py-[8rem] flex flex-wrap justify-around  items-center max-tablet:gap-[3rem]'   >
+            <div className='w-[45%] max-tablet:w-[90%]  ' >
               <video className='shadow-[0px_4px_19px_8px_#4042434d] w-full rounded-[0.5rem] ' src="/Sec5video.mp4" loop={true} muted={true} autoPlay={true} ></video>
             </div>
-            <div className='w-[50%] flex flex-col gap-[3rem]' >
+            <div className='w-[50%] flex flex-col gap-[3rem] max-tablet:w-[90%]' >
                 <div className='w-full flex flex-col gap-[1rem]'>
                     <h2 className='text-[3rem] font-bold ' >🤖 Your Health Companion - 24x7</h2>
                     <p className='text-[1.5rem] font-semibold text-gray-700  ' >
@@ -41,8 +41,8 @@ const Section5 = () => {
                 <div className='flex flex-wrap w-full justify-around gap-y-[3rem] '  >
                     {
                         jeevikaFeatures.map((feature, index) => (
-                            <div key={index} className='w-[45%] flex flex-col gap-[7px] rounded-[7px] hover:scale-[1.03]  bg-white p-[1rem] justify-center items-center transition-all cursor-pointer shadow-[0px_4px_19px_8px_#4042434d]  '>
-                                <span className='text-[1.8rem] text-center font-semibold '>{feature.title}</span>
+                            <div key={index} className='w-[45%]  flex flex-col gap-[7px] rounded-[7px] hover:scale-[1.03]  bg-white p-[1rem] justify-center items-center transition-all cursor-pointer shadow-[0px_4px_19px_8px_#4042434d]  '>
+                                <span className='text-[1.8rem] max-mobile:text-[1.5rem] text-center font-semibold '>{feature.title}</span>
                                 <p className='text-[1.3rem] text-center'>{feature.description}</p>
                             </div>
                         ))
