@@ -6,6 +6,7 @@ import SendIcon from "@mui/icons-material/Send";
 import axios from "axios";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import loadinggif  from "@/assets/loading.gif"
 interface ChatData {
   role: string;
   data: string;
@@ -14,6 +15,9 @@ interface ChatData {
 const Page: React.FC = () => {
   const [UserChat, SetUserChat] = useState<string>(""); 
   const [Chatdata, SetChatdata] = useState<ChatData[]>([]); 
+  const [AiThink,SetAiThink]  = useState<boolean>(false); 
+  const scrollRef = React.useRef<HTMLDivElement | null>(null);
+
 
   const Submitchat = async (): Promise<void> => {
     try {
@@ -21,12 +25,15 @@ const Page: React.FC = () => {
         role: "user",
         data: UserChat,
       };
-      SetChatdata((prev) =>[...prev, userchatdata]);
+      await SetChatdata((prev) =>[...prev, userchatdata]);
       const temp_userQuery= UserChat
       SetUserChat("")
+      SetAiThink(true);
       const res = await axios.post("/api/askjeevika-ai", {
         userquery: UserChat,
+        chatdata: Chatdata,
       });
+      SetAiThink(false);
       console.log(res);
       const aichatdata: ChatData = {
         role: "ai",
@@ -39,8 +46,10 @@ const Page: React.FC = () => {
   };
 
   useEffect(() => {
-
-  }, [Chatdata])
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [Chatdata,AiThink]);
   
 
   return (
@@ -88,6 +97,16 @@ const Page: React.FC = () => {
                         )
                     })
                 }
+                  {/* Loader message when AI is thinking */}
+                {AiThink && (
+                  <div className="flex gap-[0.5rem] items-center">
+                    <AutoAwesomeIcon className="!text-[2.5rem] text-[#00beb1]" />
+                    <img src={loadinggif.src} alt="Loading..." className="w-[9%] object-cover object-center h-[2.5vh] " />
+                  </div>
+                )}
+
+                {/* Scroll anchor */}
+                <div ref={scrollRef} />
             </div>
             <div className="w-full h-[10%] flex justify-between">
               <input
@@ -98,6 +117,11 @@ const Page: React.FC = () => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   SetUserChat(e.target.value)
                 }
+                onKeyDown={(e:any)=>{
+                  if (e.key === "Enter" && UserChat.trim() !== "") {
+                    Submitchat();
+                  }
+                }}
               />
               <button
                 className="w-[5%] bg-blue-500 rounded-[10px] flex items-center justify-center cursor-pointer hover:scale-[1.02] transition-all"

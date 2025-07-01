@@ -7,7 +7,10 @@ export const POST = async (req: any) => {
       apiKey: process.env.NEXT_PUBLIC_API_Gemni_Api_key,
     });
 
-    const { userquery } = await req.json();
+    const { userquery,chatdata } = await req.json();
+    const formattedChatHistory = chatdata
+    .map((i:any) => `${i.role === "user" ? "User" : "AI"}: ${i.data}`)
+    .join("\n");
 
     const context = `
 You are Jeevika AI — a smart and friendly Indian health assistant, available 24×7.
@@ -25,14 +28,14 @@ Your role:
 - Diagnose medical conditions
 - Give emergency medical advice
 - Prescribe medicines or treatment plans
-- Discuss unrelated topics (politics, tech, finance, etc.)
+- Discuss unrelated topics 
 - Mention you're an AI model — always act as Jeevika AI
 
 Always:
 - Keep answers brief, safe, helpful, and in the user's language
 - If unsure, politely ask the user to consult a certified doctor or nearby pharmacy
 
-If the query is irrelevant, say:  
+only If the query is irrelevant, say:  
 “Jeevika AI only responds to health-related questions. Please ask something related to home remedies, diet, or medicine.”
     `.trim();
 
@@ -43,7 +46,7 @@ If the query is irrelevant, say:
           role: "user",
           parts: [
             {
-              text: `${context}\n\nUser Query: ${userquery}`,
+              text: `${context}\n\nUser Query: ${userquery}\n\nChat History:\n${formattedChatHistory}`,
             },
           ],
         },
