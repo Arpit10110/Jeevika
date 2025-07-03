@@ -10,7 +10,7 @@ const Navbar = () => {
         </div>
         <div className="flex  justify-center items-center gap-[3rem] text-[1.5rem] font-semibold max-slaptop:hidden   " >
           <Link className="flex transition-all hover:scale-[1.05]  "  href={"/"} >Home</Link>
-          <Link className="flex transition-all hover:scale-[1.05]  "  href={"/"} >Medicines</Link>
+          <Link className="flex transition-all hover:scale-[1.05]  "  href={"/medicines"} >Medicines</Link>
           <Link className="flex transition-all hover:scale-[1.05]  "  href={"/"} >Compare Price</Link>
           <Link className="flex transition-all hover:scale-[1.05]  "  href={"/"} > <LocalMallIcon className="!text-[1.8rem]" /> </Link>
           <Link className="flex transition-all hover:scale-[1.05]  "  href={"/jeevika-ai"} >Jeevika AI</Link>
