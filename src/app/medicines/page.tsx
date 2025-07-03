@@ -12,18 +12,24 @@ const page = () => {
     const [Isloading, setIsloading] = useState<boolean>(true);
     const [SerachInput, setSerachInput] = useState<string>("");
     const [MedData,SetMedData] = useState<any[]>([]);
+    const [Page,SetPage] = useState<number>(1);
 
     const searchmed = async()=>{
         console.log(SerachInput);
     }
 
 
-    const fetch_med = async()=>{
+    const fetch_med = async(page:number)=>{
         try {
-            const res= await axios.get("http://localhost:5000/medrouter/getallmedicines")
+            console.log(page);
+            setIsloading(true);
+            const res= await axios.post("http://localhost:5000/medrouter/getallmedicines",{
+                "page":page
+            })
             console.log(res.data);
             SetMedData(res.data.data);
             setIsloading(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (error) {
             
         }
@@ -31,7 +37,7 @@ const page = () => {
 
 
     useEffect(() => {
-        fetch_med()
+        fetch_med(1)
     }, [])
     
 
@@ -78,8 +84,18 @@ const page = () => {
                         }
                     </div>
                     <div className='mt-[8rem] flex justify-center gap-[5rem] ' >
-                        <button className='text-[1.5rem] font-bold bg-[#00beb1] px-[2rem] py-[0.5rem] rounded-[0.8rem] text-white cursor-pointer shadow-[0px_4px_19px_8px_#4042434d]  '>Prev Page</button>
-                        <button className='text-[1.5rem] font-bold bg-[#00beb1] px-[2rem] py-[0.5rem] rounded-[0.8rem] text-white cursor-pointer shadow-[0px_4px_19px_8px_#4042434d]  '>Next Page</button>
+                        <button className='text-[1.5rem] font-bold bg-[#00beb1] px-[2rem] py-[0.5rem] rounded-[0.8rem] text-white cursor-pointer shadow-[0px_4px_19px_8px_#4042434d]  '  onClick={()=>{
+                            if(Page > 1){
+                            const page_number = Page - 1;
+                                SetPage(page_number);
+                                fetch_med(page_number);
+                            }
+                        }}  >Prev Page</button>
+                        <button className='text-[1.5rem] font-bold bg-[#00beb1] px-[2rem] py-[0.5rem] rounded-[0.8rem] text-white cursor-pointer shadow-[0px_4px_19px_8px_#4042434d]  '  onClick={()=>{
+                            const page_number = Page + 1;
+                            SetPage(page_number);
+                            fetch_med(page_number);
+                        }}  >Next Page</button>
                     </div>
                 </div>
             }
